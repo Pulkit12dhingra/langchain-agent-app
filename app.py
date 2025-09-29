@@ -2,8 +2,6 @@
 import os
 os.environ["STREAMLIT_WATCH_DISABLE"] = "true"
 
-import torch
-torch.classes.__path__ = []
 
 import streamlit as st
 import warnings
