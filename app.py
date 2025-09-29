@@ -188,13 +188,13 @@ if uploaded_notebook:
     if "generating" not in st.session_state:
         st.session_state["generating"] = False
 
-    clicked = st.button("🚀 Generate Blog", disabled=st.session_state["generating"])
+    clicked = st.button("Generate Blog", disabled=st.session_state["generating"])
 
     if clicked:
         st.session_state["generating"] = True
         st.session_state["llm_placeholder"] = st.empty()
 
-        with st.spinner("🔄 Generating your blog... Please wait..."):
+        with st.spinner("Generating your blog... Please wait..."):
             result = app.invoke({
                 "query": example_query,
                 "chat_history": []
@@ -207,8 +207,8 @@ if uploaded_notebook:
         if match:
             cleaned_html = match.group(0)
             st.session_state["llm_placeholder"].empty()
-            st.markdown("### ✏️ Edit Blog Content Below")
+            st.markdown("### Edit Blog Content Below")
             edited_blog = st.text_area("Blog HTML", value=cleaned_html, height=500)
-            st.download_button("💾 Download Edited Blog", edited_blog, file_name="blog.html", mime="text/html")
+            st.download_button("Download Edited Blog", edited_blog, file_name="blog.html", mime="text/html")
         else:
-            st.error("❌ Could not find a valid <head> to </body> block.")
+            st.error("Could not find a valid <head> to </body> block.")
