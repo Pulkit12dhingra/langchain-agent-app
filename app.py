@@ -144,7 +144,7 @@ graph.set_finish_point("output")
 app = graph.compile()
 
 # UI
-st.title("🧠 Jupyter Notebook → Blog Generator")
+st.title("Jupyter Notebook → Blog Generator")
 
 uploaded_notebook = st.file_uploader("Upload a Jupyter Notebook", type=["ipynb"])
 if uploaded_notebook:
